@@ -1,0 +1,39 @@
+# Radius (block) player di sekitar target yang ikut nonton freecam.
+# (0 = semua player di dunia yang sama)
+radius: 48
+
+# Player yang di-awakening juga ikut nonton freecam.
+# Dia masuk spectator & nempel ke kamera, sementara badannya diganti NPC (pemain palsu
+# via ProtocolLib, skin + armor + item asli dia) yang muncul pas di posisi dia berdiri.
+# false = dia ga dapat freecam (first-person aja), badan asli tetap kepake.
+target-watches: true
+
+# Maksimal tinggi target naik (block). Otomatis dibatasi kalau ada atap.
+max-rise: 9
+
+# Maksimal blok melayang
+max-debris: 45
+
+# Title muncul di SEMUA player online (termasuk yang beda dunia)
+global-title: true
+
+# Kirim pesan juga ke chat semua player
+broadcast-chat: true
+
+# Buff setelah cutscene selesai
+buffs:
+  enabled: true
+  duration-seconds: 300
+
+# Format MiniMessage (gradasi: <gradient:warna1:warna2:phase>teks</gradient>)
+# Placeholder: {player} {race} {RACE} {g1} {g2} {phase}
+# {g1}/{g2} = warna gradasi ras, {phase} = geser gradasi (dianimasi otomatis di title)
+# Override per ras: messages.<beast|dragon|elf|human>.<start|title|subtitle|broadcast>
+messages:
+  start: "<gradient:{g1}:{g2}:{phase}>Sesuatu sedang terbangun...</gradient>"
+  title: "<bold><gradient:{g1}:{g2}:{phase}>{player}</gradient></bold>"
+  subtitle: "<gradient:{g2}:{g1}:{phase}>TELAH BER-EVOLUSI MENJADI GRAND {RACE}</gradient>"
+  broadcast: "<gradient:{g1}:{g2}><bold>{player}</bold> TELAH BER-EVOLUSI MENJADI GRAND {RACE}!</gradient>"
+  human:
+    subtitle: "<gradient:{g2}:{g1}:{phase}>TELAH DIPILIH OLEH ARTHUR</gradient>"
+    broadcast: "<gradient:{g1}:{g2}><bold>{player}</bold> TELAH DIPILIH OLEH ARTHUR!</gradient>"
